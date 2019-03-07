@@ -13,14 +13,13 @@ public class UserRegistration {
     private Long id;
     private String firstName;
     private String lastName;
-    private String company;
+    private String email;
     private String address;
     private String city;
     private String state;
     private String zip;
     private String county;
-    private String url;
     private String phoneNumber;
-    private String fax;
+
 }
 

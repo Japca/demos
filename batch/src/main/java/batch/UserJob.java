@@ -29,7 +29,7 @@ public class UserJob {
     @Autowired
     private UserRegistrationRepository repository;
 
-    @Value("file:${user.home}/batches/registrations.csv")
+    @Value("classpath:registrations.csv")
     private Resource input;
 
     @Bean
@@ -56,9 +56,9 @@ public class UserJob {
                 .resource(input)
                 .targetType(UserRegistration.class)
                 .delimited()
-                .names(new String[]{"firstName","lastName","company","address","city","state","zip","county","url","phoneNumber","fax"})
+                .names(new String[]{"firstName","lastName","address","city","state","zip","county","url","phoneNumber","fax"})
                 .build();
-    }
+     }
 
     @Bean
     public ItemWriter<UserRegistration> itemWriter() {
