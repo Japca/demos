@@ -1,15 +1,19 @@
 package batch.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 import lombok.Data;
 
 @Data
 @Entity
+@Table(name = "registration")
 public class UserRegistration {
 
     @Id
+    @GeneratedValue
     private Long id;
     private String firstName;
     private String lastName;
@@ -22,4 +26,5 @@ public class UserRegistration {
     private String phoneNumber;
 
 }
+
 

@@ -16,8 +16,10 @@ import org.springframework.util.ClassUtils;
 
 import batch.entity.UserRegistration;
 import batch.repository.UserRegistrationRepository;
+import lombok.extern.slf4j.Slf4j;
 
 @Configuration
+@Slf4j
 public class UserJob {
 
     @Autowired
@@ -50,18 +52,19 @@ public class UserJob {
 
     @Bean
     public FlatFileItemReader<UserRegistration> csvFileReader() throws Exception {
-
+        log.info("loading registrations from file");
         return new FlatFileItemReaderBuilder<UserRegistration>()
                 .name(ClassUtils.getShortName(FlatFileItemReader.class))
                 .resource(input)
                 .targetType(UserRegistration.class)
                 .delimited()
-                .names(new String[]{"firstName","lastName","address","city","state","zip","county","url","phoneNumber","fax"})
+                .names(new String[]{"firstName","lastName","email", "address","city","state","zip","county","phoneNumber"})
                 .build();
      }
 
     @Bean
     public ItemWriter<UserRegistration> itemWriter() {
+       log.info("saving to repository:");
        return items -> repository.saveAll(items);
     }
 }
