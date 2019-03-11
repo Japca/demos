@@ -14,8 +14,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import org.springframework.util.ClassUtils;
 
-import batch.entity.UserRegistration;
 import batch.repository.UserRegistrationRepository;
+import cz.japca.common.entity.UserRegistration;
 import lombok.extern.slf4j.Slf4j;
 
 @Configuration

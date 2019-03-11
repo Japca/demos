@@ -1,4 +1,4 @@
-package batch.entity;
+package cz.japca.common.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
