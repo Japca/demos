@@ -11,12 +11,12 @@ import org.springframework.stereotype.Service;
 import cz.japca.common.entity.UserRegistration;
 
 @Service
-public class RabbitOrderMessagingService implements OrderMessagingService {
+public class RabbitUserRegistrationMessagingService implements UserRegistrationMessagingService {
 
     private RabbitTemplate rabbit;
 
     @Autowired
-    public RabbitOrderMessagingService(RabbitTemplate rabbit) {
+    public RabbitUserRegistrationMessagingService(RabbitTemplate rabbit) {
         this.rabbit = rabbit;
     }
 
